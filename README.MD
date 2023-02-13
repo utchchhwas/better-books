@@ -21,6 +21,6 @@
     ```
 6. Run `django` server:
     ```
-    cd ..
+    cd ../backend
     python manage.py runserver 
     ```
