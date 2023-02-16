@@ -38,12 +38,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'corsheaders',
     'api.apps.ApiConfig',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -119,7 +121,19 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+# Media URL
+
+MEDIA_URL = 'images/'
+
+# Media Root is the path the directory that will hold user-uploaded files
+
+MEDIA_ROOT = 'static/images/'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Cross-Origin Resource Sharing (CORS) configuration
+
+CORS_ALLOW_ALL_ORIGINS = True # Allow any cross-origin request
