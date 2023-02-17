@@ -1,3 +1,7 @@
+## Admin Credentials:
+- username: admin
+- password: admin_is_sudo
+
 ## Setup Instructions:
 1. Make sure you have `python` and `npm` installed.
 2. Clone the repo:
