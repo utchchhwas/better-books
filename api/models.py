@@ -1,5 +1,6 @@
 from django.db import models
 import os
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 
@@ -12,7 +13,8 @@ def authorImagePath(instance, filename):
 class Author(models.Model):
     """Model to represent an author."""
     name = models.CharField(max_length=100)
-    image = models.ImageField(upload_to=authorImagePath, default=None, null=True, blank=True)
+    # image = models.ImageField(upload_to=authorImagePath, default=None, null=True, blank=True)
+    image = CloudinaryField('image', null=True, blank=True)
     
     class Meta:
         verbose_name_plural = "authors"
