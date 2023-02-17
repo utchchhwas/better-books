@@ -7,7 +7,7 @@ from api.serializers import AuthorSerializer, PublisherSerializer, BookCatagoryS
 
 @api_view(['GET'])
 def getRoutes(request):
-    """Get all available API routes."""
+    """Get all available API endpoints."""
     return Response([
         '/api/routes/',
         'api/authors/',
@@ -100,6 +100,8 @@ def getBook(request, id):
 @api_view(['GET'])
 def getSearchResults(request):
     """Search books."""
-    publishers = Book.objects.all()
-    serializer = BookSerializer(publishers, many=True)
+    qp = request.query_params
+    keyword = qp.get('keyword', '')
+    books = Book.objects.filter(name__icontains=keyword)
+    serializer = BookSerializer(books, many=True)
     return Response(serializer.data)

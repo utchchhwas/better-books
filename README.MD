@@ -1,9 +1,5 @@
-## Admin Credentials:
-- username: admin
-- password: admin_is_sudo
-
 ## Setup Instructions:
-1. Make sure you have `python` and `npm` installed.
+1. Make sure you have `python` and `node.js` installed.
 2. Clone the repo:
     ```
     git clone https://github.com/utchchhwas/GoodReads.git
@@ -14,17 +10,25 @@
     python -m venv venv
     venv/Scripts/Activate.ps1
     ```
-4. Install dependencies:
+4. Install dependencies and run server:
     ```
-    pip install -r requirements.txt
-    cd frontend && npm install
+    ./setup.ps1     # powershell
     ```
-5. Run `react` server:
     ```
-    npm start
+    ./setup.sh      # bash
     ```
-6. Run `django` server:
-    ```
-    cd ../backend
-    python manage.py runserver 
-    ```
+
+## Admin Credentials:
+```
+username: admin
+password: admin
+```
+
+## API Endpoints
+ - http://127.0.0.1:8000/ [Homepage]
+ - http://127.0.0.1:8000/admin/ [Admin Panel]
+ - http://127.0.0.1:8000/api/authors/ [Get all authors.]
+ - http://127.0.0.1:8000/api/authors/1/ [Get a specific author.]
+ - http://127.0.0.1:8000/api/publishers/ [Get all publishers.]
+ - http://127.0.0.1:8000/api/book_catagories/ [Get all catagories.]
+ - 
