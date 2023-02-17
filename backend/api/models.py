@@ -41,6 +41,14 @@ class BookCatagory(models.Model):
     class Meta:
         verbose_name_plural = "book catagories"
 
+    def getListFromRoot(self):
+        listFromRoot = []
+        curr = self
+        while curr is not None:
+            listFromRoot.insert(0, (curr.id, curr.catagory))
+            curr = curr.parent
+        return listFromRoot
+
     def __str__(self) -> str:
         if self.parent is None:
             return self.catagory
