@@ -31,4 +31,7 @@ password: admin
  - http://127.0.0.1:8000/api/authors/1/ [Get a specific author.]
  - http://127.0.0.1:8000/api/publishers/ [Get all publishers.]
  - http://127.0.0.1:8000/api/book_catagories/ [Get all catagories.]
- - 
+ - http://127.0.0.1:8000/api/child_book_catagories/1/ [Get all the childs of a catagory.]
+ - http://127.0.0.1:8000/api/books/ [Get all books.]
+ - http://127.0.0.1:8000/api/books/1/ [Get a specific book.]
+ - http://127.0.0.1:8000/api/search/?keyword=concrete [Search books.]
