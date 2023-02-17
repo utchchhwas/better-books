@@ -18,6 +18,7 @@ def getRoutes(request):
         'api/child_book_catagories/<int:id>/'
         'api/books/',
         'api/books/<int:id>/'
+        'api/search/',
     ])
 
 
@@ -80,17 +81,25 @@ def getChildBookCatagories(request, id):
 @api_view(['GET'])
 def getBooks(request):
     """Get all books."""
-    publishers = Book.objects.all()
-    serializer = BookSerializer(publishers, many=True)
+    books = Book.objects.all()
+    serializer = BookSerializer(books, many=True)
     return Response(serializer.data)
 
 
 @api_view(['GET'])
 def getBook(request, id):
-    """Get a specific book.."""
+    """Get a specific book."""
     try:
         book = Book.objects.get(pk=id)
     except Book.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
     serializer = BookSerializer(book, many=False)
+    return Response(serializer.data)
+
+
+@api_view(['GET'])
+def getSearchResults(request):
+    """Search books."""
+    publishers = Book.objects.all()
+    serializer = BookSerializer(publishers, many=True)
     return Response(serializer.data)

@@ -11,4 +11,5 @@ urlpatterns = [
     path('child_book_catagories/<int:id>/', views.getChildBookCatagories, name='child_book_catagories'),
     path('books/', views.getBooks, name='books'),
     path('books/<int:id>/', views.getBook, name='book'),
+    path('search/', views.getSearchResults, name='search'),
 ]
